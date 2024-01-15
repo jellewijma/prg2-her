@@ -27,3 +27,37 @@
 [14-01-2024 22:32] Class \System\Handlers\BlogHandler does not exist! on line 57 of C:\xampp\htdocs\project\blog\includes\classes\System\Bootstrap\WebBootstrap.php
 [14-01-2024 22:32] Class \System\Handlers\BlogHandler does not exist! on line 57 of C:\xampp\htdocs\project\blog\includes\classes\System\Bootstrap\WebBootstrap.php
 [14-01-2024 22:38] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'blog.users' doesn't exist on line 123 of C:\xampp\htdocs\project\blog\includes\classes\System\Databases\BaseObject.php
+[14-01-2024 23:51] Undefined variable $success on line 139 of C:\xampp\htdocs\project\blog\includes\templates\admin\index.php
+[14-01-2024 23:51] Undefined variable $success on line 139 of C:\xampp\htdocs\project\blog\includes\templates\admin\index.php
+[14-01-2024 23:52] Undefined variable $success on line 139 of C:\xampp\htdocs\project\blog\includes\templates\admin\index.php
+[14-01-2024 23:52] Undefined variable $success on line 139 of C:\xampp\htdocs\project\blog\includes\templates\admin\index.php
+[14-01-2024 23:53] Undefined variable $success on line 139 of C:\xampp\htdocs\project\blog\includes\templates\admin\index.php
+[14-01-2024 23:53] Undefined variable $success on line 139 of C:\xampp\htdocs\project\blog\includes\templates\admin\index.php
+[14-01-2024 23:54] Undefined variable $success on line 139 of C:\xampp\htdocs\project\blog\includes\templates\admin\index.php
+[14-01-2024 23:54] Class \System\Handlers\BlogHandler does not exist! on line 57 of C:\xampp\htdocs\project\blog\includes\classes\System\Bootstrap\WebBootstrap.php
+[14-01-2024 23:54] Class \System\Handlers\BlogHandler does not exist! on line 57 of C:\xampp\htdocs\project\blog\includes\classes\System\Bootstrap\WebBootstrap.php
+[14-01-2024 23:56] Undefined variable $success on line 139 of C:\xampp\htdocs\project\blog\includes\templates\admin\index.php
+[14-01-2024 23:57] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'blog.blogs' doesn't exist on line 159 of C:\xampp\htdocs\project\blog\includes\classes\System\Databases\BaseObject.php
+[15-01-2024 00:07] Undefined array key "image" on line 48 of C:\xampp\htdocs\project\blog\includes\classes\System\Handlers\AdminHandler.php
+[15-01-2024 00:08] Undefined array key "image" on line 48 of C:\xampp\htdocs\project\blog\includes\classes\System\Handlers\AdminHandler.php
+[15-01-2024 00:09] Undefined array key "image" on line 48 of C:\xampp\htdocs\project\blog\includes\classes\System\Handlers\AdminHandler.php
+[15-01-2024 00:12] Undefined array key "image" on line 48 of C:\xampp\htdocs\project\blog\includes\classes\System\Handlers\AdminHandler.php
+[15-01-2024 00:12] Undefined array key "image" on line 48 of C:\xampp\htdocs\project\blog\includes\classes\System\Handlers\AdminHandler.php
+[15-01-2024 00:27] Undefined array key "featured" on line 37 of C:\xampp\htdocs\project\blog\includes\classes\System\Form\Data.php
+[15-01-2024 00:37] Undefined array key "featured" on line 37 of C:\xampp\htdocs\project\blog\includes\classes\System\Form\Data.php
+[15-01-2024 00:37] Undefined array key "featured" on line 37 of C:\xampp\htdocs\project\blog\includes\classes\System\Form\Data.php
+[15-01-2024 00:39] Undefined array key "featured" on line 37 of C:\xampp\htdocs\project\blog\includes\classes\System\Form\Data.php
+[15-01-2024 00:39] Undefined array key "featured" on line 37 of C:\xampp\htdocs\project\blog\includes\classes\System\Form\Data.php
+[15-01-2024 00:41] Undefined array key "featured" on line 37 of C:\xampp\htdocs\project\blog\includes\classes\System\Form\Data.php
+[15-01-2024 00:42] Undefined array key "formDate" on line 47 of C:\xampp\htdocs\project\blog\includes\classes\System\Handlers\BaseHandler.php
+[15-01-2024 00:42] Undefined array key "formDate" on line 47 of C:\xampp\htdocs\project\blog\includes\classes\System\Handlers\BaseHandler.php
+[15-01-2024 00:42] Undefined array key "formDate" on line 47 of C:\xampp\htdocs\project\blog\includes\classes\System\Handlers\BaseHandler.php
+[15-01-2024 00:43] Undefined array key "formDate" on line 47 of C:\xampp\htdocs\project\blog\includes\classes\System\Handlers\BaseHandler.php
+[15-01-2024 00:43] Undefined array key "featured" on line 39 of C:\xampp\htdocs\project\blog\includes\classes\System\Form\Data.php
+[15-01-2024 00:44] Undefined array key "featured" on line 40 of C:\xampp\htdocs\project\blog\includes\classes\System\Form\Data.php
+[15-01-2024 00:52] Undefined array key "featured" on line 40 of C:\xampp\htdocs\project\blog\includes\classes\System\Form\Data.php
+[15-01-2024 00:52] Undefined array key "featured" on line 39 of C:\xampp\htdocs\project\blog\includes\classes\System\Form\Data.php
+[15-01-2024 00:52] Undefined array key "featured" on line 39 of C:\xampp\htdocs\project\blog\includes\classes\System\Form\Data.php
+[15-01-2024 00:56] Undefined array key "featured" on line 39 of C:\xampp\htdocs\project\blog\includes\classes\System\Form\Data.php
+[15-01-2024 01:07] Undefined variable $blogs on line 78 of C:\xampp\htdocs\project\blog\includes\classes\System\Handlers\AdminHandler.php
+[15-01-2024 01:22] Exceeded filesize limit. on line 36 of C:\xampp\htdocs\project\blog\includes\classes\System\Utils\Image.php

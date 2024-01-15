@@ -1,4 +1,6 @@
-<?php namespace System\Form;
+<?php
+
+namespace System\Form;
 
 /**
  * Class Data

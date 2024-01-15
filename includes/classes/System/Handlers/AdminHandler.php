@@ -3,7 +3,7 @@
 namespace System\Handlers;
 
 use System\Form\Data;
-use System\Databases\Objects\Album;
+use System\Databases\Objects\Blog;
 use System\Utils\Image;
 
 /**
@@ -13,9 +13,9 @@ use System\Utils\Image;
  */
 class AdminHandler extends BaseHandler
 {
-  use AlbumFillAndValidate;
+  use BlogFillAndValidate;
 
-  private Album $album;
+  private Blog $blog;
   private Data $formData;
   private Image $image;
 
@@ -33,14 +33,49 @@ class AdminHandler extends BaseHandler
 
   protected function index(): void
   {
-    //Get all albums
-    // $albums = Album::getAll();
+    //If not logged in, redirect to login
+    if (!$this->session->keyExists('user')) {
+      header('Location: login');
+      exit;
+    }
+
+    //Set default empty album & execute POST logic
+    $this->blog = new Blog();
+    $this->executePostHandler();
+
+    //Special check for create form only
+    if (isset($this->formData) && $_FILES['image']['error'] == 4) {
+      $this->errors[] = 'Image cannot be empty';
+    }
+
+    //Database magic when no errors are found
+    if (isset($this->formData) && empty($this->errors)) {
+      //Store image & retrieve name for database saving
+      $this->blog->image = $this->image->save($_FILES['image']);
+
+      //Set user id in Album
+      $this->blog->user_id = $this->session->get('user')->id;
+
+      //Save the record to the db
+      if ($this->blog->save()) {
+        $success = 'Blog succesfuly uploaded!';
+        //Override to see a new empty form
+        $this->blog = new Blog();
+      } else {
+        $this->errors[] = 'Whoops, something went wrong creating the blog';
+      }
+    }
+
+    // Get all albums
+    $blogs = Blog::getAll();
 
     //Return formatted data
     $this->renderTemplate([
       'pageTitle' => 'Home',
-      // 'albums' => $albums,
-      // 'totalAlbums' => count($albums)
+      'success' => $success ?? false,
+      'errors' => $this->errors,
+      'blog' => $this->blog,
+      'blogs' => $blogs,
     ]);
   }
 

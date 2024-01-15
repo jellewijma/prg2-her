@@ -12,6 +12,7 @@
     <title>Music Collection | <?= $pageTitle ?? ''; ?></title>
     <meta charset="utf-8" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 
 <body>

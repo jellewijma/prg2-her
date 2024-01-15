@@ -22,7 +22,7 @@ class AccountHandler extends BaseHandler
     {
         //If already logged in, no need to be here
         if ($this->session->keyExists('user')) {
-            header('Location: create');
+            header('Location: ./admin');
             exit;
         }
 
