@@ -156,6 +156,10 @@
               <p class="text-sm leading-6 text-gray-900"><?= $blog->featured ?></p>
               <p class="mt-1 text-xs leading-5 text-gray-500"><?= $blog->created_at ?></p>
             </div>
+              <div class="">
+                  <a href="./edit?id=<?= $blog->id; ?>" class="cursor-pointer">Edit</a>
+                  <a href="./delete?id=<?= $blog->id; ?>" class="cursor-pointer">Delete</a>
+              </div>
           </li>
         <?php endforeach; ?>
       </ul>

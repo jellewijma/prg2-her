@@ -7,7 +7,7 @@ use System\Databases\Objects\Blog;
 use System\Utils\Image;
 
 /**
- * Class AlbumHandler
+ * Class BlogHandler
  * @package System\Handlers
  * @noinspection PhpUnused
  */
@@ -20,7 +20,7 @@ class AdminHandler extends BaseHandler
   private Image $image;
 
   /**
-   * AlbumHandler constructor.
+   * BlogHandler constructor.
    *
    * @param string $templateName
    * @throws \ReflectionException
@@ -39,7 +39,7 @@ class AdminHandler extends BaseHandler
       exit;
     }
 
-    //Set default empty album & execute POST logic
+    //Set default empty Blog & execute POST logic
     $this->blog = new Blog();
     $this->executePostHandler();
 
@@ -53,7 +53,7 @@ class AdminHandler extends BaseHandler
       //Store image & retrieve name for database saving
       $this->blog->image = $this->image->save($_FILES['image']);
 
-      //Set user id in Album
+      //Set user id in Blog
       $this->blog->user_id = $this->session->get('user')->id;
 
       //Save the record to the db
@@ -66,7 +66,7 @@ class AdminHandler extends BaseHandler
       }
     }
 
-    // Get all albums
+    // Get all Blogs
     $blogs = Blog::getAll();
 
     //Return formatted data
@@ -79,91 +79,54 @@ class AdminHandler extends BaseHandler
     ]);
   }
 
-  // protected function create(): void
-  // {
-  //   //If not logged in, redirect to login
-  //   if (!$this->session->keyExists('user')) {
-  //     header('Location: login');
-  //     exit;
-  //   }
+  protected function edit(): void
+  {
+    //If not logged in, redirect to login
+    if (!$this->session->keyExists('user')) {
+      header('Location: login');
+      exit;
+    }
+    try {
+      //Get the record from the db & execute POST logic
+      $this->blog = Blog::getById((int)$_GET['id']);
+      $this->executePostHandler();
 
-  //   //Set default empty album & execute POST logic
-  //   $this->album = new Album();
-  //   $this->executePostHandler();
+      //Database magic when no errors are found
+      if (isset($this->formData) && empty($this->errors)) {
+        //If image is not empty, process the new image file
+        if ($_FILES['image']['error'] != 4) {
+          //Remove old image
+          $this->image->delete($this->blog->image);
 
-  //   //Special check for create form only
-  //   if (isset($this->formData) && $_FILES['image']['error'] == 4) {
-  //     $this->errors[] = 'Image cannot be empty';
-  //   }
+          //Store new image & retrieve name for database saving (override current image name)
+          $this->blog->image = $this->image->save($_FILES['image']);
+        }
 
-  //   //Database magic when no errors are found
-  //   if (isset($this->formData) && empty($this->errors)) {
-  //     //Store image & retrieve name for database saving
-  //     $this->album->image = $this->image->save($_FILES['image']);
+        //Save the record to the db
+        if ($this->blog->save()) {
+          $success = 'Your blog has been updated in the database!';
+          header('Location: ./admin');
+        } else {
+          $this->errors[] = 'Whoops, something went wrong updating the blog';
+        }
+      }
 
-  //     //Set user id in Album
-  //     $this->album->user_id = $this->session->get('user')->id;
+      $pageTitle = 'Edit ' . $this->blog->title;
+    } catch (\Exception $e) {
+      $this->logger->error($e);
+      $this->errors[] = 'Something went wrong retrieving the album as it doesn\'t seem to exist.';
+      $pageTitle = 'Album does\'t exist';
+    }
 
-  //     //Save the record to the db
-  //     if ($this->album->save()) {
-  //       $success = 'Your new album has been created in the database!';
-  //       //Override to see a new empty form
-  //       $this->album = new Album();
-  //     } else {
-  //       $this->errors[] = 'Whoops, something went wrong creating the album';
-  //     }
-  //   }
+    //Return formatted data
+    $this->renderTemplate([
+      'pageTitle' => $pageTitle,
+      'blog' => $this->blog ?? null,
+      'success' => $success ?? false,
+      'errors' => $this->errors
+    ]);
+  }
 
-  //   //Return formatted data
-  //   $this->renderTemplate([
-  //     'pageTitle' => 'Create album',
-  //     'album' => $this->album,
-  //     'success' => $success ?? false,
-  //     'errors' => $this->errors
-  //   ]);
-  // }
-
-  // protected function edit(): void
-  // {
-  //   try {
-  //     //Get the record from the db & execute POST logic
-  //     $this->album = Album::getById((int)$_GET['id']);
-  //     $this->executePostHandler();
-
-  //     //Database magic when no errors are found
-  //     if (isset($this->formData) && empty($this->errors)) {
-  //       //If image is not empty, process the new image file
-  //       if ($_FILES['image']['error'] != 4) {
-  //         //Remove old image
-  //         $this->image->delete($this->album->image);
-
-  //         //Store new image & retrieve name for database saving (override current image name)
-  //         $this->album->image = $this->image->save($_FILES['image']);
-  //       }
-
-  //       //Save the record to the db
-  //       if ($this->album->save()) {
-  //         $success = 'Your album has been updated in the database!';
-  //       } else {
-  //         $this->errors[] = 'Whoops, something went wrong updating the album';
-  //       }
-  //     }
-
-  //     $pageTitle = 'Edit ' . $this->album->name;
-  //   } catch (\Exception $e) {
-  //     $this->logger->error($e);
-  //     $this->errors[] = 'Something went wrong retrieving the album as it doesn\'t seem to exist.';
-  //     $pageTitle = 'Album does\'t exist';
-  //   }
-
-  //   //Return formatted data
-  //   $this->renderTemplate([
-  //     'pageTitle' => $pageTitle,
-  //     'album' => $this->album ?? null,
-  //     'success' => $success ?? false,
-  //     'errors' => $this->errors
-  //   ]);
-  // }
 
   // /**
   //  * @noinspection PhpUnused
@@ -192,36 +155,36 @@ class AdminHandler extends BaseHandler
   //   ]);
   // }
 
-  // protected function delete(): void
-  // {
-  //   try {
-  //     //Get the record from the db
-  //     $album = Album::getById($_GET['id']);
+  protected function delete(): void
+  {
+    try {
+      //Get the record from the db
+      $blog = Blog::getById($_GET['id']);
 
-  //     //Only execute delete when confirmed
-  //     if (isset($_GET['continue'])) {
-  //       //Delete in the DB, and if successful remove image as well
-  //       if (Album::delete((int)$_GET['id'])) {
-  //         //Remove image
-  //         $this->image->delete($album->image);
+      //Only execute delete when confirmed
+      if (isset($_GET['continue'])) {
+        //Delete in the DB, and if successful remove image as well
+        if (Blog::delete((int)$_GET['id'])) {
+          //Remove image
+          $this->image->delete($blog->image);
 
-  //         //Redirect to homepage after deletion & exit script
-  //         header('Location: ' . BASE_PATH);
-  //         exit;
-  //       }
-  //     }
+          //Redirect to homepage after deletion & exit script
+          header('Location: ./admin');
+          exit;
+        }
+      }
 
-  //     //Return formatted data
-  //     $this->renderTemplate([
-  //       'pageTitle' => 'Delete album',
-  //       'album' => $album,
-  //       'errors' => $this->errors
-  //     ]);
-  //   } catch (\Exception $e) {
-  //     //We don't want anyone sniffing the delete page for no reason, so without correct parameters, return back
-  //     $this->logger->error($e);
-  //     header('Location: ' . BASE_PATH);
-  //     exit;
-  //   }
-  // }
+      //Return formatted data
+      $this->renderTemplate([
+        'pageTitle' => 'Delete album',
+        'blog' => $blog,
+        'errors' => $this->errors
+      ]);
+    } catch (\Exception $e) {
+      //We don't want anyone sniffing the delete page for no reason, so without correct parameters, return back
+      $this->logger->error($e);
+      header('Location: ./admin');
+      exit;
+    }
+  }
 }

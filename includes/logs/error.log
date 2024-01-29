@@ -61,3 +61,30 @@
 [15-01-2024 00:56] Undefined array key "featured" on line 39 of C:\xampp\htdocs\project\blog\includes\classes\System\Form\Data.php
 [15-01-2024 01:07] Undefined variable $blogs on line 78 of C:\xampp\htdocs\project\blog\includes\classes\System\Handlers\AdminHandler.php
 [15-01-2024 01:22] Exceeded filesize limit. on line 36 of C:\xampp\htdocs\project\blog\includes\classes\System\Utils\Image.php
+[15-01-2024 09:56] DB Connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it on line 50 of C:\xampp\htdocs\project\blog\includes\classes\System\Databases\Database.php
+[15-01-2024 10:29] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id' cannot be null on line 123 of C:\xampp\htdocs\project\blog\includes\classes\System\Databases\BaseObject.php
+[15-01-2024 11:03] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id' cannot be null on line 123 of C:\xampp\htdocs\project\blog\includes\classes\System\Databases\BaseObject.php
+[15-01-2024 11:34] Undefined array key "id" on line 86 of C:\xampp\htdocs\project\blog\includes\classes\System\Handlers\AdminHandler.php
+[15-01-2024 12:26] Route does not exist on line 63 of C:\xampp\htdocs\project\blog\includes\classes\System\Handlers\BaseHandler.php
+[15-01-2024 12:26] Route does not exist on line 63 of C:\xampp\htdocs\project\blog\includes\classes\System\Handlers\BaseHandler.php
+[15-01-2024 12:26] Route does not exist on line 63 of C:\xampp\htdocs\project\blog\includes\classes\System\Handlers\BaseHandler.php
+[15-01-2024 12:27] Route does not exist on line 63 of C:\xampp\htdocs\project\blog\includes\classes\System\Handlers\BaseHandler.php
+[15-01-2024 12:27] Route does not exist on line 63 of C:\xampp\htdocs\project\blog\includes\classes\System\Handlers\BaseHandler.php
+[15-01-2024 12:28] Route does not exist on line 63 of C:\xampp\htdocs\project\blog\includes\classes\System\Handlers\BaseHandler.php
+[15-01-2024 12:29] Route does not exist on line 63 of C:\xampp\htdocs\project\blog\includes\classes\System\Handlers\BaseHandler.php
+[15-01-2024 12:30] Route does not exist on line 63 of C:\xampp\htdocs\project\blog\includes\classes\System\Handlers\BaseHandler.php
+[15-01-2024 12:30] Route does not exist on line 63 of C:\xampp\htdocs\project\blog\includes\classes\System\Handlers\BaseHandler.php
+[15-01-2024 12:36] Undefined property: System\Databases\Objects\Blog::$images on line 29 of C:\xampp\htdocs\project\blog\includes\templates\blog\blog.php
+[25-01-2024 17:47] Exceeded filesize limit. on line 36 of C:\xampp\htdocs\project\blog\includes\classes\System\Utils\Image.php
+[25-01-2024 17:50] Exceeded filesize limit. on line 36 of C:\xampp\htdocs\project\blog\includes\classes\System\Utils\Image.php
+[25-01-2024 17:50] Exceeded filesize limit. on line 36 of C:\xampp\htdocs\project\blog\includes\classes\System\Utils\Image.php
+[25-01-2024 17:54] Exceeded filesize limit. on line 36 of C:\xampp\htdocs\project\blog\includes\classes\System\Utils\Image.php
+[25-01-2024 18:01] Exceeded filesize limit. on line 36 of C:\xampp\htdocs\project\blog\includes\classes\System\Utils\Image.php
+[25-01-2024 18:01] Exceeded filesize limit. :1012881 on line 38 of C:\xampp\htdocs\project\blog\includes\classes\System\Utils\Image.php
+[25-01-2024 18:02] Exceeded filesize limit. :1012881 on line 38 of C:\xampp\htdocs\project\blog\includes\classes\System\Utils\Image.php
+[25-01-2024 18:02] Exceeded filesize limit. :6807327 on line 38 of C:\xampp\htdocs\project\blog\includes\classes\System\Utils\Image.php
+[28-01-2024 13:56] Undefined property: System\Databases\Objects\Blog::$desciption on line 60 of C:\xampp\htdocs\project\blog\includes\templates\admin\edit.php
+[28-01-2024 13:56] Undefined property: System\Databases\Objects\Blog::$desciption on line 60 of C:\xampp\htdocs\project\blog\includes\templates\admin\edit.php
+[28-01-2024 13:56] Undefined property: System\Databases\Objects\Blog::$desciption on line 25 of C:\xampp\htdocs\project\blog\includes\templates\admin\edit.php
+[28-01-2024 13:59] Invalid file format. on line 53 of C:\xampp\htdocs\project\blog\includes\classes\System\Utils\Image.php
+[28-01-2024 14:06] Undefined variable $blogs on line 37 of C:\xampp\htdocs\project\blog\includes\templates\blog\overview.php

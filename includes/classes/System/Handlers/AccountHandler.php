@@ -52,7 +52,7 @@ class AccountHandler extends BaseHandler
         //When no error, set session variable, redirect & exit script
         if (isset($user) && empty($this->errors)) {
             $this->session->set('user', $user);
-            header('Location: create');
+            header('Location: ./admin');
             exit;
         }
 
@@ -82,7 +82,7 @@ class AccountHandler extends BaseHandler
         $user = new User();
         $user->email = 'jelle.wijma@gmail.com';
         $user->password = password_hash('jelle', PASSWORD_DEFAULT);
-        $user->name = 'Jelle';
+        $user->name = 'jelle';
         $user->save();
         exit;
 

@@ -6,7 +6,7 @@ const DB_PASS = '';
 const DB_NAME = 'blog';
 
 //Paths
-const BASE_PATH = '/school/xampp/htdocs/project/blog';
+const BASE_PATH = '/project/blog/';
 const LOG_PATH = __DIR__ . '/../logs/';
 const INCLUDES_PATH = __DIR__ . '/../';
 

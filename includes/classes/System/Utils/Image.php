@@ -1,4 +1,6 @@
-<?php namespace System\Utils;
+<?php
+
+namespace System\Utils;
 
 /**
  * Class Image
@@ -32,13 +34,14 @@ class Image
         }
 
         //You should also check filesize here.
-        if ($uploadFile['size'] > 1000000) {
-            throw new \RuntimeException('Exceeded filesize limit.');
+        if ($uploadFile['size'] > 10000000) {
+            throw new \RuntimeException('Exceeded filesize limit. :' . $uploadFile['size']);
         }
 
         //DO NOT TRUST $uploadFile['mime'] VALUE !!, check MIME Type by yourself.
         $fInfo = new \finfo(FILEINFO_MIME_TYPE);
-        if (false === $ext = array_search(
+        if (
+            false === $ext = array_search(
                 $fInfo->file($uploadFile['tmp_name']),
                 [
                     'jpg' => 'image/jpeg',
